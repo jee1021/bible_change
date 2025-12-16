@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_extensions",
     'rest_framework',
+    "drf_spectacular",
+    "apps.bible_change.bible_relay",
     'apps.bible_change.users',
 
 ]

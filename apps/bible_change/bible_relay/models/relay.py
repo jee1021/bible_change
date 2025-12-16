@@ -2,12 +2,11 @@ from django.db import models
 from django.conf import settings
 
 
-User = settings.AUTH_USER_MODEL
 
 class Relay(models.Model):
 
     user = models.ForeignKey(
-        settings.SETTING_AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="bible_relay_comments",
         verbose_name="바이블 성경댓글 작성자"
@@ -48,8 +47,8 @@ class Relay(models.Model):
         verbose_name = "성경릴래이댓글"
         verbose_name_plural = "성경릴레이 댓글들"
 
-        ordering = ["-created"]
+        ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.user} | {self.book} {self.chapter}:{self.verse}"
+        return f"{self.user} | {self.bible_book} {self.chapter}:{self.verse}"
 
